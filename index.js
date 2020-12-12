@@ -1,21 +1,19 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import https from 'https'
 import http from 'http'
-import {Server} from 'http'
-import fs from 'fs'
 import crypto from 'crypto'
-import ex from "./app.js";
+import runner from "./server/app.js";
 import {createReadStream} from 'fs'
+import mongoose from 'mongoose';
+import cors from './utils/cors'
+import user_model from './models/user';
 
-
-(() =>{
-    try {
-        const port = process.env.PORT || 3000;
-        const app = ex(express, bodyParser, createReadStream, crypto, http)
-        app.listen(port)
-        console.log(`server is listening at http://localhost:${port}`)
-    } catch (error) {
-        console.log(error)
-    }
-})()
+try {
+    const port = process.env.PORT || 3000;
+    const user = user_model(mongoose);
+    const app = runner(express, bodyParser, createReadStream, crypto, http, mongoose, user, cors)
+    app.listen(port)
+    console.log(`server is listening at http://localhost:${port}`)
+} catch (error) {
+    console.log(error)
+}

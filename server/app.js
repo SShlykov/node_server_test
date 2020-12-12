@@ -1,17 +1,13 @@
-export default (express, bodyParser, createReadStream, crypto, http) => {
-    const CORS = {
-        'Access-Control-Allow-Origin':  '*',
-        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
-        'Access-Control-Allow-Headers': 'x-test,Content-Type,Accept, Access-Control-Allow-Headers',
-    }
-    const user = "sshlykov"
+export default (express, bodyParser, createReadStream, crypto, http, mongoose, User, cors) => {
+    const user  = "sshlykov";
+    const plain = { 'Content-Type': 'text/plain; charset=utf-8' }
     const app = express();
     app
-    .use((req, res, next) => res.set(CORS) && next())
+    .use((req, res, next) => res.set(cors) && next())
     .use(bodyParser.urlencoded({ extended: true }))
     .get('/login/', (req, res) => res.send(user))
     .get('/code/', (req, res) => {
-        res.set({ 'Content-Type': 'text/plain; charset=utf-8' });
+        res.set(plain);
         createReadStream(import.meta.url.substring(7)).pipe(res);
     })
     .get('/sha1/:input', (req, res) => {
@@ -38,13 +34,13 @@ export default (express, bodyParser, createReadStream, crypto, http) => {
             http.get(url, (response) => {
                 let data = '';
                 response.on('data', chunk => (data += chunk));
-                response.on('end', () => res.set({ 'Content-Type': 'text/plain; charset=utf-8' }).end(data));
+                response.on('end', () => res.set(plain).end(data));
             });
         } catch (error) {
             res.send("error, can`t be fetched")
         }
     })
     .all('*', (req, res) => res.send(user))
-    .use((error, req, res, next) => res.status(500).set(CORS).send('Error'));
+    .use((error, req, res, next) => res.status(500).set(cors).send('Error'));
     return app;
 }
