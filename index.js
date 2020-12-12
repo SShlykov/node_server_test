@@ -5,8 +5,8 @@ import crypto from 'crypto';
 import runner from "./server/app.js";
 import {createReadStream} from 'fs'
 import mongoose from 'mongoose';
-import cors from './cors';
-import user_model from './models/user';
+import cors from './cors.js';
+import user_model from './models/user.js';
 
 try {
     const port = process.env.PORT || 3000;
