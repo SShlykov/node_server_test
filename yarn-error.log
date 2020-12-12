@@ -1,0 +1,36 @@
+Arguments: 
+  /home/spc/.nvm/versions/node/v14.15.1/bin/node /home/spc/.asdf/installs/yarn/1.22.10/bin/yarn.js init
+
+PATH: 
+  /home/spc/.asdf/installs/yarn/1.22.10/bin:/home/spc/.asdf/installs/python/anaconda3-2020.07/bin:/home/spc/.asdf/installs/python/anaconda3-2020.07/condabin:/home/spc/.nvm/versions/node/v14.15.1/bin:/home/spc/.asdf/shims:/home/spc/software/.asdf/bin:/home/spc/.autojump/bin:/home/spc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/spc/.rvm/bin:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/asdf:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/geeknote:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/minikube:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/rails:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/ruby:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/sudo:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/ssh-agent:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/autojump:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/common-aliases:/home/spc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/compleat:/home/spc/.antigen/bundles/gusaiani/elixir-oh-my-zsh:/home/spc/.antigen/bundles/zsh-users/zsh-completions:/home/spc/.antigen/bundles/zsh-users/zsh-syntax-highlighting:/home/spc/.antigen/bundles/lukechilds/zsh-nvm:/home/spc/.antigen/bundles/Sparragus/zsh-auto-nvm-use:/home/spc/.antigen/bundles/sindresorhus/pure:/home/spc/.rvm/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/home/spc/.asdf/installs/yarn/1.22.10/lib/cli.js:137009:13)
+      at Interface.emit (events.js:315:20)
+      at Interface._ttyWrite (readline.js:875:16)
+      at ReadStream.onkeypress (readline.js:213:10)
+      at ReadStream.emit (events.js:315:20)
+      at emitKeys (internal/readline/utils.js:345:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1144:36)
+      at ReadStream.emit (events.js:315:20)
+      at addChunk (_stream_readable.js:309:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
