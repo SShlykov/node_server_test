@@ -8,6 +8,7 @@ export default (express, bodyParser, createReadStream, crypto, http) => {
     const app = express();
     app
     .use((req, res, next) => res.set(CORS) && next())
+    .use(bodyParser.urlencoded({ extended: true }))
     .get('/login/', (req, res) => res.send(user))
     .get('/code/', (req, res) => {
         res.set({ 'Content-Type': 'text/plain; charset=utf-8' });
@@ -18,6 +19,18 @@ export default (express, bodyParser, createReadStream, crypto, http) => {
         const shasum = crypto.createHash('sha1');
         shasum.update(input);
         res.send(shasum.digest('hex'));
+    })
+    .post('/insert/', async (req, res) => {
+        try {
+            const { URL, login, password } = req.body;
+            await mongoose.connect(URL, {useNewUrlParser: true, useUnifiedTopology: true});
+
+            const newUser = new User({ login, password });
+            await newUser.save();
+            res.status(201).send(`User was saved with login ${login}`);
+        } catch (e) {
+            res.send(e.codeName);
+        }   
     })
     .all('/req/', (req, res) => {
         try {
