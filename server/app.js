@@ -40,8 +40,10 @@ export default (express, bodyParser, createReadStream, crypto, http, mongoose, U
         res.set(plain);
         res.end("function task(x) {return new Promise((resolve, reject) => x < 18 ? resolve('yes') : reject('no') ); }")
     })
-    .get('/render', (req, res) => {
-        const data = { random2: "hello", random3: "mate"};
+    .post('/render/', (req, res) => {
+        const data = req.body;
+        const url = req.params.addr;
+        console.log('data', data);
         res.render('index', { data });
     })
     .post('/insert/', async (req, res) => {
